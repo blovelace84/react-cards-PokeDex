@@ -1,13 +1,19 @@
 import React from "react";
 import useFlip from "./hooks";
-import backImage from "./assets/back.png";
+import pokeDexImg from './assets/PokeDex.jpg';
 
-const PokemonCard = ({ frontImage, backImage, name }) => {
+const PokemonCard = ({ name, image }) => {
     const [isFlipped, toggleFlip] = useFlip();
 
     return(
-        <div onClick={toggleFlip} style={{ cursor: 'pointer'}}>
-            <img src={ isFlipped ? backImage : frontImage } alt={name} />
+        <div onClick={toggleFlip} style={{ cursor: 'pointer', textAlign: "center"}}>
+            <h3>{name.toUpperCase()}</h3>
+            <img 
+                src={ isFlipped ? image : pokeDexImg } 
+                alt={name} 
+                width="120" 
+                height="120" 
+            />
         </div>
     );
 }
