@@ -10,6 +10,7 @@ const PlayingCardList = () => {
 
   return(
     <div className="container">
+      <h1>Pick a Card:</h1>
       <button className="button" onClick={() => addCard()}>Draw a Card</button>
       <button className="button" onClick={clearCards}>Reset</button>
       <div className="cards">
