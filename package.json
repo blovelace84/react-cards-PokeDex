@@ -1,0 +1,28 @@
+{
+  "name": "react-cards-pokedex",
+  "version": "1.0.0",
+  "description": "Custom Hooks Exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blovelace84/react-cards-PokeDex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/blovelace84/react-cards-PokeDex/issues"
+  },
+  "homepage": "https://github.com/blovelace84/react-cards-PokeDex#readme",
+  "devDependencies": {
+    "vite": "^6.1.1"
+  }
+}
