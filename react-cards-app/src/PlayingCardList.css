@@ -1,0 +1,30 @@
+.container{
+    text-align: center;
+    margin: 20px;
+    background-color: red;
+}
+
+.button{
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #0056b3;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.card{
+    margin: 10px;
+}
