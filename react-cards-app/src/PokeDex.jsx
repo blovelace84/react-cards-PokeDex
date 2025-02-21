@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import useAxios from "./useAxios";
 import PokemonCard from "./PokemonCard";
+import "./PokeDex.css";
+import pokeBall from "./assets/PokeBall.png"
 
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -16,17 +18,20 @@ const PokeDex = () => {
     };
 
     return(
-        <div>
+        <div className="pokedex">
+            <h1>Pokedex</h1>
+            <img src={pokeBall} alt="Pokemon Ball" />
             <input
                 type="text"
                 value={searchTerm}
+                className="pokedex-input"
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Enter Pokemon name:"
             />
-            <button onClick={handleAddPokemon}>Catch Pokemon</button>
-            <button onClick={clearPokemon}>Clear Pokemon</button>
+            <button className="pokedex-button" onClick={handleAddPokemon}>Catch Pokemon</button>
+            <button className="pokedex-button" onClick={clearPokemon}>Clear Pokemon</button>
 
-            <div>
+            <div className="pokemon-list">
                 {pokemon.length > 0 ? (
                     pokemon.map((p, idx) => (
                        <PokemonCard 
