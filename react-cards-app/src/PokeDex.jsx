@@ -27,7 +27,7 @@ function PokeDex() {
         className="pokedex-input"
       />
       <button onClick={handleAddPokemon} className="pokedex-button">
-        Fetch Pokémon
+        Catch Pokémon
       </button>
       <button onClick={clearPokemon} className="pokedex-button">
         Release Pokémon
