@@ -1,24 +1,22 @@
 import { useState } from "react";
 import axios from "axios";
 
-function useAxios(baseUrl) {
-  const [data, setData] = useState([]); //  Initialize with an empty array
+const useAxios = (url) => {
+  const [data, setData] = useState([]);
 
-  const addData = async (urlSuffix = "") => {
-    try {
-      const response = await axios.get(`${baseUrl}${urlSuffix}`);
-      console.log("Fetched Data:", response.data); // ✅ Debugging log
-      setData((prevData) => [...prevData, response.data]); //  Add new data to array
-    } catch (error) {
+  const fetchData = async (endpoint = "") => {
+    try{
+      const response = await axios.get(`${url}${endpoint}`);
+      setData(prevData => [...prevData, response.data]);
+    }catch(error){
       console.error("Error fetching data:", error);
     }
   };
-
   const clearData = () => {
     setData([]);
   }
 
-  return [data, addData, clearData];
+  return [data, fetchData, clearData];
 }
 
 export default useAxios;

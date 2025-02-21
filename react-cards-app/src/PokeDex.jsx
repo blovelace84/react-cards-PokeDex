@@ -1,56 +1,41 @@
 import React, { useState } from "react";
-import useAxios from "./useAxios"; // Custom hook for API calls
-import PokemonCard from "./PokemonCard"; // Import PokemonCard component
-import "./PokeDex.css"; // Import styles
-import pokeball from "./assets/PokeBall.png"; // Ensure correct path
+import useAxios from "./useAxios";
+import PokemonCard from "./PokemonCard";
 
-const POKE_API = "https://pokeapi.co/api/v2/pokemon";
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 
 function PokeDex() {
+  const [pokemon, addPokemon] = useAxios(BASE_URL);
   const [searchTerm, setSearchTerm] = useState("");
-  const [pokemon, addPokemon, clearPokemon] = useAxios(POKE_API);
 
-  const handleSearch = () => {
-    if (searchTerm.trim() !== "") {
-      addPokemon(searchTerm.toLowerCase());
-      setSearchTerm(""); // Clear input after searching
+  const handleAddPokemon = () => {
+    if (searchTerm) {
+      addPokemon(searchTerm.toLowerCase()); // Fetch specific Pokémon
+      setSearchTerm("");
     }
   };
 
   return (
-    <div className="pokedex-container">
-      <div className="pokedex-header">
-        <h1>PokeDex</h1>
-        <img src={pokeball} alt="PokeBall" className="pokedex-icon" />
-      </div>
-      
-      <div className="pokedex-form">
-        <input
-          type="text"
-          placeholder="Enter Pokémon name"
-          className="pokedex-input"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button className="pokedex-button" onClick={handleSearch}>
-          Catch Pokémon
-        </button>
-        <button className="pokedex-button clear" onClick={clearPokemon}>
-          Clear Pokémon
-        </button>
-      </div>
+    <div>
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder="Enter Pokémon name"
+      />
+      <button onClick={handleAddPokemon}>Fetch Pokémon</button>
 
-      <div className="pokedex-list">
-        {pokemon.length === 0 ? (
-          <p>No Pokémon caught.</p>
-        ) : (
-          pokemon.map((p, index) => (
+      <div>
+        {pokemon.length > 0 ? (
+          pokemon.map((p, idx) => (
             <PokemonCard
-              key={index}
-              name={p.data.name}
-              image={p.data.sprites.front_default}
+              key={idx}
+              name={p.name}
+              image={p.sprites.front_default}
             />
           ))
+        ) : (
+          <p>No Pokémon fetched yet.</p>
         )}
       </div>
     </div>
