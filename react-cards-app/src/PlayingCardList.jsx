@@ -5,11 +5,12 @@ import PlayingCard from "./PlayingCard";
 const BASE_URL = "https://deckofcardsapi.com/api/deck/new/draw/";
 
 function PlayingCardList() {
-  const [cards, addCard] = useAxios(BASE_URL);
+  const [cards, addCard, clearCards] = useAxios(BASE_URL);
 
   return (
     <div>
       <button onClick={() => addCard()}>Draw a Card</button>
+      <button onClick={clearCards}>Clear Cards</button>
       <div>
         {cards.length > 0 ? (
           cards.map((card, idx) => (

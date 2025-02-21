@@ -5,7 +5,7 @@ import PokemonCard from "./PokemonCard";
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 
 const PokeDex = () => {
-    const [pokemon, addPokemon] = useAxios(BASE_URL);
+    const [pokemon, addPokemon, clearPokemon] = useAxios(BASE_URL);
     const [searchTerm, setSearchTerm] = useState("");
 
     const handleAddPokemon = () => {
@@ -24,6 +24,7 @@ const PokeDex = () => {
                 placeholder="Enter Pokemon name:"
             />
             <button onClick={handleAddPokemon}>Catch Pokemon</button>
+            <button onClick={clearPokemon}>Clear Pokemon</button>
 
             <div>
                 {pokemon.length > 0 ? (
