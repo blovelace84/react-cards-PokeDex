@@ -1,2 +1,3 @@
 # react-cards-PokeDex
- Custom Hooks Exercise
+
+For this exercise, I created a React Cards App as I am studying React.js. This Project contains 4 different components. The four components I used are PlayingCard, PlayingCardList, PokemonCard, and PokeDex. Both PlayingCard and PokemonCard components have similar functionalities, where they both display cards. The other two components, PokeDex and PlayingCardList also have similar functionalities where you click on the button to display a card and you type the name of a Pokemon and click the button to catch it. If you want to reset and clear both cards, they also come with reset and release Pokemon buttons to clear the screen. I also added custom hooks to the project, where one handles API integration, while the other handles flipping the cards over. This was a fun yet challenging project and I learned a lot about custom hooks.
