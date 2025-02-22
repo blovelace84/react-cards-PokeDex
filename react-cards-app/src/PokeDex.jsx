@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useAxios from "./useAxios";
 import PokemonCard from "./PokemonCard";
 import "./PokeDex.css"; // Import the CSS file
+import pokeBall from "./assets/pokeBall.png";
 
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -19,6 +20,7 @@ function PokeDex() {
   return (
     <div className="pokedex-container">
       <h1>Gotta Catch Em All!! Pokemon PokeDex</h1>
+      <img src={pokeBall} alt="Poke Ball" className="pokeBall" />
       <input
         type="text"
         value={searchTerm}
