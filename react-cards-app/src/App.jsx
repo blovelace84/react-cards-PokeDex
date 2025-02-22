@@ -1,4 +1,4 @@
-import React,{ useEffect } from "react";
+import React, { useEffect } from "react";
 import PlayingCardList from "./PlayingCardList";
 import PokeDex from "./PokeDex";
 import "./App.css"; // Import the CSS file
